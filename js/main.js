@@ -110,6 +110,51 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(statsSection);
     }
 
+    /* --- 4b. Counter Animation for Stats V2 (Homepage Redesign) --- */
+    const statsV2Section = document.querySelector('.stats-v2-section');
+    const statV2Counters = document.querySelectorAll('[data-count-v2]');
+    let countersV2Animated = false;
+
+    if (statsV2Section && statV2Counters.length > 0) {
+        const observerV2 = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !countersV2Animated) {
+                countersV2Animated = true;
+                statV2Counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-count-v2'));
+                    const isDecimal = counter.hasAttribute('data-decimal-v2');
+                    const duration = 2500;
+                    let startTimestamp = null;
+
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        let current;
+
+                        if (isDecimal) {
+                            current = (eased * target).toFixed(1);
+                        } else {
+                            current = Math.floor(eased * target);
+                            if (target >= 1000) current = current.toLocaleString('en-US');
+                        }
+
+                        counter.textContent = current;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            counter.textContent = isDecimal ? target.toFixed(1) : (target >= 1000 ? target.toLocaleString('en-US') : target);
+                        }
+                    };
+                    requestAnimationFrame(step);
+                });
+                observerV2.unobserve(statsV2Section);
+            }
+        }, { threshold: 0.3 });
+
+        observerV2.observe(statsV2Section);
+    }
+
     /* --- 5. Before/After Slider --- */
     const baSliders = document.querySelectorAll('.ba-slider-container');
     baSliders.forEach(container => {
@@ -468,15 +513,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const statusText = liveBadge.querySelector('.status-text');
+            const isEnglish = document.documentElement.lang === 'en';
 
             if (isOpen) {
                 liveBadge.classList.remove('closed');
                 liveBadge.classList.add('open');
-                statusText.textContent = "مفتوح الآن";
+                statusText.textContent = isEnglish ? "Open Now" : "مفتوح الآن";
             } else {
                 liveBadge.classList.remove('open');
                 liveBadge.classList.add('closed');
-                statusText.textContent = "مغلق حالياً";
+                statusText.textContent = isEnglish ? "Closed Now" : "مغلق حالياً";
             }
         }
 
