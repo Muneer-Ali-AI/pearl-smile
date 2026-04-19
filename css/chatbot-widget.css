@@ -1,0 +1,560 @@
+/* ============================================
+   Pearl Smile — Dental Bot Chatbot Widget
+   Colors: Navy (#0A1128) · Gold (#D4AF37)
+   Pure CSS + SVG approach — no image dependency
+   ============================================ */
+
+/* ── Ensure WhatsApp stays bottom-LEFT, no interference ── */
+.floating-wa {
+    left: 30px !important;
+    right: auto !important;
+    z-index: 999 !important;
+}
+
+/* ── Hide the default Botpress launcher completely ── */
+/* Target ALL possible Botpress widget button selectors */
+.bpw-widget-btn,
+.bpw-floating-button,
+div[class*="bpWidget"] > button,
+#bp-web-widget-container > div > button,
+#bp-web-widget-container button[aria-label],
+#bp-web-widget-container > div:not(:has(iframe)) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0) !important;
+}
+
+/* Botpress v3 uses a floating button div — hide it aggressively */
+#bp-web-widget-container > div[style*="position: fixed"] {
+    display: none !important;
+}
+
+/* Only show the container when chat is actually open (has iframe) */
+#bp-web-widget-container {
+    pointer-events: none;
+}
+
+#bp-web-widget-container:has(iframe[style*="height"]) {
+    pointer-events: auto;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+#custom-3d-bot {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 100px;
+    height: 100px;
+    z-index: 9999;
+    cursor: pointer;
+    animation: botFloat 3s ease-in-out infinite;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-3d-bot:hover {
+    animation-play-state: paused;
+    transform: scale(1.12) translateY(-4px);
+}
+
+#custom-3d-bot:active {
+    transform: scale(0.95);
+}
+
+#custom-3d-bot.bot-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.3) translateY(40px);
+}
+
+/* ============================================
+   TOOTH MASCOT — Pure CSS 3D Character
+   ============================================ */
+.tooth-mascot {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+/* Main Tooth Body */
+.tooth-body {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 62px;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f0f4ff 40%,
+        #e8ecf5 100%
+    );
+    border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 -8px 20px rgba(200, 210, 230, 0.3),
+        inset 0 4px 10px rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Tooth Roots */
+.tooth-root-left,
+.tooth-root-right {
+    position: absolute;
+    bottom: -2px;
+    width: 16px;
+    height: 24px;
+    background: linear-gradient(
+        180deg,
+        #f0f4ff 0%,
+        #e0e5f0 100%
+    );
+    border-radius: 0 0 50% 50%;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.1),
+        inset 0 -4px 8px rgba(200, 210, 230, 0.3);
+}
+
+.tooth-root-left {
+    left: 50%;
+    transform: translateX(-130%) rotate(-8deg);
+    border: 2px solid rgba(212, 175, 55, 0.15);
+    border-top: none;
+}
+
+.tooth-root-right {
+    left: 50%;
+    transform: translateX(30%) rotate(8deg);
+    border: 2px solid rgba(212, 175, 55, 0.15);
+    border-top: none;
+}
+
+/* Crown (Golden) */
+.tooth-crown {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 20px;
+    z-index: 3;
+}
+
+.tooth-crown svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Face — Eyes */
+.tooth-face {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 32px;
+    z-index: 2;
+}
+
+.eye {
+    position: absolute;
+    top: 0;
+    width: 11px;
+    height: 12px;
+    background: #1a1a2e;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    animation: eyeBlink 4s ease-in-out infinite;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+.eye-left {
+    left: 5px;
+}
+
+.eye-right {
+    right: 5px;
+}
+
+/* Blush cheeks */
+.blush {
+    position: absolute;
+    top: 14px;
+    width: 10px;
+    height: 6px;
+    background: rgba(255, 150, 170, 0.5);
+    border-radius: 50%;
+}
+
+.blush-left {
+    left: 0;
+}
+
+.blush-right {
+    right: 0;
+}
+
+/* Smile */
+.smile {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 8px;
+    border-bottom: 2.5px solid #e85d75;
+    border-radius: 0 0 50% 50%;
+}
+
+/* Sparkle effects */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    z-index: 5;
+}
+
+.sparkle::before,
+.sparkle::after {
+    content: '';
+    position: absolute;
+    background: #D4AF37;
+    border-radius: 2px;
+}
+
+.sparkle::before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sparkle::after {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sparkle-1 {
+    top: 2px;
+    right: 8px;
+    animation: sparkleFlash 2s ease-in-out infinite 0s;
+}
+
+.sparkle-2 {
+    top: 18px;
+    left: 8px;
+    animation: sparkleFlash 2s ease-in-out infinite 0.7s;
+    transform: scale(0.7);
+}
+
+.sparkle-3 {
+    bottom: 20px;
+    right: 4px;
+    animation: sparkleFlash 2s ease-in-out infinite 1.3s;
+    transform: scale(0.5);
+}
+
+/* ============================================
+   PULSING GLOW RING
+   ============================================ */
+#custom-3d-bot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.15) 0%,
+        rgba(212, 175, 55, 0.05) 40%,
+        transparent 70%
+    );
+    animation: pulseGlow 2.5s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#custom-3d-bot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid rgba(212, 175, 55, 0.12);
+    animation: pulseRing 3s ease-in-out infinite 0.5s;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ============================================
+   NOTIFICATION DOT
+   ============================================ */
+.bot-notification-dot {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    background: #D4AF37;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    z-index: 10;
+    animation: dotPulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ============================================
+   WELCOME TOOLTIP — Glassmorphism
+   ============================================ */
+.bot-tooltip {
+    position: absolute;
+    bottom: 112px;
+    right: -15px;
+    min-width: 230px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    direction: rtl;
+
+    /* Glassmorphism */
+    background: linear-gradient(
+        135deg,
+        rgba(10, 17, 40, 0.75) 0%,
+        rgba(10, 17, 40, 0.55) 100%
+    );
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+        0 1px 0 rgba(255, 255, 255, 0.1) inset;
+
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+    animation: tooltipEnter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 2.5s forwards;
+
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* Gold accent line */
+.bot-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+/* Triangle pointer */
+.bot-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 32px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(
+        135deg,
+        transparent 50%,
+        rgba(10, 17, 40, 0.65) 50%
+    );
+    transform: rotate(45deg);
+    border-right: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.bot-tooltip .tooltip-emoji {
+    display: inline-block;
+    font-size: 1.1em;
+    margin-right: 4px;
+    animation: emojiWiggle 2s ease-in-out infinite 3.5s;
+}
+
+.bot-tooltip.tooltip-hide {
+    animation: tooltipExit 0.4s ease-in forwards;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes botFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0;
+    }
+}
+
+@keyframes tooltipEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes tooltipExit {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(8px) scale(0.9); }
+}
+
+@keyframes emojiWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(12deg); }
+    75% { transform: rotate(-12deg); }
+}
+
+@keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+}
+
+@keyframes eyeBlink {
+    0%, 45%, 55%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes sparkleFlash {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.3) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    #custom-3d-bot {
+        width: 70px;
+        height: 70px;
+        bottom: 18px;
+        right: 18px;
+    }
+
+    .tooth-mascot {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tooth-body {
+        width: 42px;
+        height: 46px;
+    }
+
+    .tooth-crown {
+        width: 24px;
+        height: 14px;
+        top: -8px;
+    }
+
+    .bot-tooltip {
+        min-width: 200px;
+        font-size: 0.82rem;
+        padding: 12px 16px;
+        bottom: 80px;
+        right: -25px;
+    }
+
+    .floating-wa {
+        left: 18px !important;
+        bottom: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #custom-3d-bot {
+        width: 60px;
+        height: 60px;
+        bottom: 14px;
+        right: 14px;
+    }
+
+    .tooth-mascot {
+        width: 60px;
+        height: 60px;
+    }
+
+    .tooth-body {
+        width: 36px;
+        height: 40px;
+    }
+
+    .bot-tooltip {
+        min-width: 170px;
+        font-size: 0.78rem;
+        bottom: 68px;
+        right: -30px;
+    }
+
+    .floating-wa {
+        left: 14px !important;
+        bottom: 14px !important;
+    }
+}
