@@ -11,37 +11,10 @@
     z-index: 999 !important;
 }
 
-/* ── Hide the default Botpress launcher completely ── */
-/* Target ALL possible Botpress widget button selectors */
-.bpw-widget-btn,
-.bpw-floating-button,
-div[class*="bpWidget"] > button,
-#bp-web-widget-container > div > button,
-#bp-web-widget-container button[aria-label],
-#bp-web-widget-container > div:not(:has(iframe)) {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    clip: rect(0, 0, 0, 0) !important;
-}
-
-/* Botpress v3 uses a floating button div — hide it aggressively */
-#bp-web-widget-container > div[style*="position: fixed"] {
-    display: none !important;
-}
-
-/* Only show the container when chat is actually open (has iframe) */
-#bp-web-widget-container {
-    pointer-events: none;
-}
-
-#bp-web-widget-container:has(iframe[style*="height"]) {
-    pointer-events: auto;
-}
+/* ── Botpress launcher hiding ──
+   NOTE: All Botpress element hiding is now handled by JavaScript
+   (MutationObserver + inline styles in chatbot.js).
+   No CSS selectors needed — the JS approach is selector-independent. */
 
 /* ============================================
    MAIN CONTAINER
