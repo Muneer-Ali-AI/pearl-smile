@@ -1,0 +1,345 @@
+/* ============================================
+   Announcement Bar + Enhanced Top Bar
+   Conversion-focused UI elements
+   ============================================ */
+
+/* ── [0] ANNOUNCEMENT BAR ── */
+.announcement-bar {
+    background: linear-gradient(90deg, #D4AF37, #BFA02E, #D4AF37);
+    background-size: 200% 100%;
+    animation: shimmerGold 3s linear infinite;
+    padding: 0;
+    position: relative;
+    z-index: 10001;
+    overflow: hidden;
+}
+
+.announcement-bar.bar-hidden {
+    display: none;
+}
+
+@keyframes shimmerGold {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.announcement-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+}
+
+.announcement-icon {
+    color: #0D1B2E;
+    font-size: 1rem;
+    animation: giftWiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes giftWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(12deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(5deg); }
+    40% { transform: rotate(0deg); }
+}
+
+.announcement-text {
+    color: #0D1B2E;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    white-space: nowrap;
+}
+
+/* ── Countdown Timer ── */
+.countdown-mini {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    direction: ltr;
+}
+
+.cd-block {
+    background: rgba(13, 27, 46, 0.12);
+    border-radius: 6px;
+    padding: 2px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 38px;
+}
+
+.cd-block span {
+    font-weight: 900;
+    font-size: 14px;
+    color: #0D1B2E;
+    line-height: 1.2;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cd-block small {
+    font-size: 8px;
+    color: rgba(13, 27, 46, 0.7);
+    font-weight: 600;
+    line-height: 1;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cd-sep {
+    color: #0D1B2E;
+    font-weight: 900;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+/* ── Announcement CTA ── */
+.announcement-cta {
+    background: #0D1B2E;
+    color: #D4AF37 !important;
+    padding: 5px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.announcement-cta:hover {
+    background: #162240;
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-1px);
+}
+
+/* ── Close Button — Premium Pill Design ──
+   Desktop: pill shape with "إغلاق" text
+   Mobile: clean circular icon
+   ---------------------------------------- */
+.announcement-close {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: rgba(13, 27, 46, 0.08);
+    border: 1.5px solid rgba(13, 27, 46, 0.12);
+    border-radius: 50%;
+    color: rgba(13, 27, 46, 0.6);
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    line-height: 1;
+    padding: 0;
+    font-family: sans-serif;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.announcement-close:hover {
+    background: rgba(13, 27, 46, 0.18);
+    border-color: rgba(13, 27, 46, 0.25);
+    color: #0D1B2E;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.announcement-close:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* ── [A] ENHANCED TOP BAR ── */
+.info-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.info-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ── Clinic Status Indicator ── */
+.clinic-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #25D366;
+    animation: statusPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.clinic-status.closed .status-dot {
+    background: #e74c3c;
+    animation: none;
+}
+
+.clinic-status.closed .status-label {
+    color: #e74c3c;
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    50% { box-shadow: 0 0 0 5px rgba(37, 211, 102, 0); }
+}
+
+.status-label {
+    color: #25D366;
+    white-space: nowrap;
+}
+
+/* ── Info Separator ── */
+.info-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    display: block;
+    flex-shrink: 0;
+}
+
+/* ── Social Icons — Proper Size & Spacing ──
+   Icons are circular with generous gap (10px)
+   and a readable size (0.85rem / ~14px).
+   ───────────────────────────────────────── */
+.top-info-bar .social-icons {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-info-bar .social-icons a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    transition: all 0.25s ease;
+}
+
+.top-info-bar .social-icons a:hover {
+    background: var(--gold, #D4AF37);
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE — Announcement + Top Bar
+   ============================================ */
+@media (max-width: 1024px) {
+    .announcement-text {
+        font-size: 12px;
+    }
+    .cd-block {
+        min-width: 34px;
+        padding: 2px 6px;
+    }
+    .cd-block span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .announcement-inner {
+        padding: 6px 16px;
+    }
+    .announcement-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    .announcement-text {
+        font-size: 11px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.5;
+    }
+    .countdown-mini {
+        gap: 3px;
+    }
+    .cd-block {
+        min-width: 30px;
+        padding: 2px 5px;
+    }
+    .cd-block span {
+        font-size: 11px;
+    }
+    .cd-block small {
+        font-size: 7px;
+    }
+    .announcement-cta {
+        font-size: 11px;
+        padding: 4px 14px;
+    }
+
+    /* Close button — smaller on mobile */
+    .announcement-close {
+        left: 6px;
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+
+    /* Top bar: hide location, status, separator on mobile */
+    .info-location {
+        display: none !important;
+    }
+    .info-sep {
+        display: none !important;
+    }
+    .clinic-status {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .announcement-icon {
+        display: none;
+    }
+    .announcement-text {
+        font-size: 10.5px;
+    }
+    .cd-block {
+        min-width: 26px;
+        padding: 1px 4px;
+    }
+    .cd-block span {
+        font-size: 10px;
+    }
+    .announcement-cta {
+        font-size: 10px;
+        padding: 3px 10px;
+    }
+}

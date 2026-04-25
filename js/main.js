@@ -1,5 +1,5 @@
-/* ==========================================================================
-   Pearl Smile Clinic - Main JavaScript
+﻿/* ==========================================================================
+   Demo Dental Clinic - Main JavaScript
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const time = document.querySelector('input[name="preferredTime"]:checked').value;
                 const notes = document.getElementById('formNotes').value.trim();
 
-                let message = `مرحباً، أرغب في حجز موعد في عيادة بيرل سمايل\n\n`;
+                let message = `مرحباً، أرغب في حجز موعد في عيادة ديمو دنتل\n\n`;
                 message += `*الاسم:* ${name}\n`;
                 message += `*الجوال:* ${phone}\n`;
                 message += `*الخدمة:* ${service}\n`;

@@ -1,5 +1,5 @@
 /**
- * Pearl Smile — Dental Bot Chatbot Widget
+ * Demo Dental — Dental Bot Chatbot Widget
  * 
  * NUCLEAR APPROACH: Instead of guessing Botpress CSS selectors,
  * we use a MutationObserver to detect ANY element Botpress injects
@@ -22,6 +22,7 @@
     // ── Track all Botpress-injected elements so we can hide/show them ──
     var botpressElements = [];
     var chatIsOpen = false;
+    var chatOpenedAt = 0;  // timestamp of when chat was last opened
     var observer = null;
 
     /* ── Helpers ── */
@@ -251,9 +252,9 @@
         crown.className = 'tooth-crown';
         crown.innerHTML = '<svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
             '<path d="M4 22L8 6L14 16L20 4L26 16L32 6L36 22H4Z" fill="url(#crownGrad)" stroke="#B8960C" stroke-width="1"/>' +
-            '<circle cx="8" cy="8" r="2" fill="#FFF5CC"/>' +
-            '<circle cx="20" cy="5" r="2.5" fill="#FFF5CC"/>' +
-            '<circle cx="32" cy="8" r="2" fill="#FFF5CC"/>' +
+            '<circle cx="8" cy="6" r="2" fill="#FFF5CC"/>' +
+            '<circle cx="20" cy="4" r="2.5" fill="#FFF5CC"/>' +
+            '<circle cx="32" cy="6" r="2" fill="#FFF5CC"/>' +
             '<defs><linearGradient id="crownGrad" x1="20" y1="4" x2="20" y2="22">' +
             '<stop offset="0%" stop-color="#F5D060"/>' +
             '<stop offset="50%" stop-color="#D4AF37"/>' +
@@ -343,6 +344,12 @@
 
         container.appendChild(tooltip);
 
+        // ── Close Icon (shown when chat is open) ──
+        var closeIcon = document.createElement('div');
+        closeIcon.className = 'bot-close-icon';
+        closeIcon.innerHTML = '&#10005;'; // ✕
+        container.appendChild(closeIcon);
+
         // ── Inject ──
         document.body.appendChild(container);
 
@@ -355,33 +362,96 @@
             }
         });
 
-        // Auto-hide tooltip
-        setTimeout(function () {
+        // ── Tooltip: pure JS control, no CSS animation dependency ──
+        // Immediately override the CSS animation so JS is the sole controller
+        (function () {
             var tip = document.getElementById('bot-tooltip');
-            if (tip && !tip.classList.contains('tooltip-hide')) {
-                tip.classList.add('tooltip-hide');
-            }
-        }, 10000);
+            if (!tip) return;
+            // Kill CSS animation, use CSS transition for smooth show/hide
+            tip.style.animation = 'none';
+            tip.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            tip.style.opacity = '0';
+            tip.style.transform = 'translateY(12px) scale(0.9)';
+        })();
+
+        var _tipBusy = false; // guard: prevent overlapping show/hide cycles
+
+        function showTooltipBriefly() {
+            if (chatIsOpen) return;
+            if (_tipBusy) return;
+            var tip = document.getElementById('bot-tooltip');
+            var bot = document.getElementById('custom-3d-bot');
+            if (!tip || !bot || bot.classList.contains('bot-close-mode')) return;
+
+            _tipBusy = true;
+
+            // Show
+            tip.style.opacity = '1';
+            tip.style.transform = 'translateY(0) scale(1)';
+
+            // Hide after 5 seconds
+            setTimeout(function () {
+                var t = document.getElementById('bot-tooltip');
+                if (t) {
+                    t.style.opacity = '0';
+                    t.style.transform = 'translateY(12px) scale(0.9)';
+                }
+                // Release guard after transition completes (0.4s)
+                setTimeout(function () { _tipBusy = false; }, 450);
+            }, 5000);
+        }
+
+        // First appearance: 3 seconds after load
+        setTimeout(showTooltipBriefly, 3000);
+
+        // Repeat every 30 seconds
+        setInterval(showTooltipBriefly, 30000);
     }
 
     /* ══════════════════════════════════════════
-       3. CLICK HANDLER — Open Chat
+       3. CLICK HANDLER — Toggle Chat Open/Close
        ══════════════════════════════════════════ */
     function handleBotClick() {
-        var container = document.getElementById('custom-3d-bot');
-        var tooltip = document.getElementById('bot-tooltip');
+        // If chat is currently open → close it
+        if (chatIsOpen) {
+            closeBotpress();
+            return;
+        }
 
-        if (tooltip) tooltip.classList.add('tooltip-hide');
-        if (container) container.classList.add('bot-hidden');
+        var tooltip = document.getElementById('bot-tooltip');
+        if (tooltip) {
+            tooltip.style.opacity = '0';
+            tooltip.classList.add('tooltip-hide');
+        }
+
+        // Transform mascot into a close button (stays visible & clickable)
+        showCloseMode();
 
         // Reveal ALL Botpress elements before opening
         chatIsOpen = true;
+        chatOpenedAt = Date.now();
         for (var i = 0; i < botpressElements.length; i++) {
             revealElement(botpressElements[i]);
         }
 
         // Open Botpress
         openBotpress();
+    }
+
+    /* ── Show mascot as close (X) button when chat is open ── */
+    function showCloseMode() {
+        var container = document.getElementById('custom-3d-bot');
+        if (!container) return;
+        container.classList.add('bot-close-mode');
+        container.setAttribute('aria-label', isArabic() ? 'أغلق المحادثة' : 'Close chat');
+    }
+
+    /* ── Restore mascot to normal tooth mascot ── */
+    function hideCloseMode() {
+        var container = document.getElementById('custom-3d-bot');
+        if (!container) return;
+        container.classList.remove('bot-close-mode');
+        container.setAttribute('aria-label', isArabic() ? 'افتح المحادثة' : 'Open chat');
     }
 
     function openBotpress() {
@@ -393,6 +463,18 @@
         }
     }
 
+    function closeBotpress() {
+        if (window.botpress) {
+            try { window.botpress.close(); return; } catch (e) {}
+        }
+        if (window.botpressWebChat) {
+            try { window.botpressWebChat.sendEvent({ type: 'hide' }); return; } catch (e) {}
+        }
+        // Fallback: manually hide and restore
+        hideAllBotpress();
+        restoreBot();
+    }
+
     /* ══════════════════════════════════════════
        4. WATCH BOTPRESS STATE — Detect close
        ══════════════════════════════════════════ */
@@ -400,8 +482,9 @@
         if (window.botpress && window.botpress.on) {
             window.botpress.on('webchat:opened', function () {
                 chatIsOpen = true;
-                var c = document.getElementById('custom-3d-bot');
-                if (c) c.classList.add('bot-hidden');
+                chatOpenedAt = Date.now();
+                // Switch to close-button mode (mascot stays visible & clickable)
+                showCloseMode();
             });
             window.botpress.on('webchat:closed', function () {
                 hideAllBotpress();
@@ -413,12 +496,18 @@
             });
         }
 
-        // Periodic fallback: if chat has closed but we missed the event
+        // Periodic fallback: if chat has closed but we missed the event.
+        // IMPORTANT: skip the first 5 seconds after opening to avoid
+        // false-positives while Botpress is still rendering its UI (flicker bug).
         setInterval(function () {
             if (!chatIsOpen) return;
+            // Guard: Botpress needs time to fully render — ignore first 5s
+            if (Date.now() - chatOpenedAt < 5000) return;
+
             var bot = document.getElementById('custom-3d-bot');
-            if (!bot || !bot.classList.contains('bot-hidden')) return;
-            
+            // Only run if we're in close-mode (chat was opened by us)
+            if (!bot || !bot.classList.contains('bot-close-mode')) return;
+
             // Check if Botpress UI is actually visible
             var anyVisible = false;
             for (var i = 0; i < botpressElements.length; i++) {
@@ -445,8 +534,8 @@
 
     function restoreBot() {
         chatIsOpen = false;
-        var c = document.getElementById('custom-3d-bot');
-        if (c) c.classList.remove('bot-hidden');
+        chatOpenedAt = 0;
+        hideCloseMode();
     }
 
     /* ══════════════════════════════════════════

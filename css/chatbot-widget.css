@@ -6,9 +6,14 @@
 
 /* ── Ensure WhatsApp stays bottom-LEFT, no interference ── */
 .floating-wa {
-    left: 30px !important;
+    left: 28px !important;
     right: auto !important;
+    bottom: 28px !important;
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 2.2rem !important;
     z-index: 999 !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45) !important;
 }
 
 /* ── Botpress launcher hiding ──
@@ -21,10 +26,10 @@
    ============================================ */
 #custom-3d-bot {
     position: fixed;
-    bottom: 28px;
+    bottom: 26px;
     right: 24px;
-    width: 100px;
-    height: 100px;
+    width: 76px;
+    height: 76px;
     z-index: 9999;
     cursor: pointer;
     animation: botFloat 3s ease-in-out infinite;
@@ -47,24 +52,99 @@
     transform: scale(0.3) translateY(40px);
 }
 
+/* ── Close-mode: mascot transforms into a visible X button ── */
+#custom-3d-bot.bot-close-mode {
+    animation: none !important;
+    transform: scale(0.85);
+}
+
+#custom-3d-bot.bot-close-mode .tooth-mascot {
+    opacity: 0;
+    transform: scale(0.3) rotate(90deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+#custom-3d-bot.bot-close-mode::before,
+#custom-3d-bot.bot-close-mode::after {
+    display: none !important;
+}
+
+/* The X icon shown when in close-mode */
+#custom-3d-bot.bot-close-mode .bot-close-icon {
+    display: flex;
+}
+
+.bot-close-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #ffffff;
+    box-shadow:
+        0 4px 16px rgba(212, 175, 55, 0.5),
+        0 0 0 3px rgba(212, 175, 55, 0.2);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.25s ease;
+    z-index: 10;
+    pointer-events: none;
+    animation: closeIconIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+#custom-3d-bot.bot-close-mode:hover .bot-close-icon {
+    transform: translate(-50%, -50%) scale(1.12) rotate(90deg);
+    box-shadow:
+        0 6px 24px rgba(212, 175, 55, 0.7),
+        0 0 0 5px rgba(212, 175, 55, 0.25);
+}
+
+@keyframes closeIconIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3) rotate(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+}
+
+/* Notification dot hidden in close mode */
+#custom-3d-bot.bot-close-mode .bot-notification-dot {
+    display: none;
+}
+
+/* Tooltip hidden in close mode */
+#custom-3d-bot.bot-close-mode .bot-tooltip {
+    display: none;
+}
+
 /* ============================================
    TOOTH MASCOT — Pure CSS 3D Character
    ============================================ */
 .tooth-mascot {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 76px;
+    height: 76px;
     pointer-events: none;
 }
 
 /* Main Tooth Body */
 .tooth-body {
     position: absolute;
-    top: 8px;
+    top: 18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 58px;
-    height: 62px;
+    width: 48px;
+    height: 48px;
     background: linear-gradient(
         180deg,
         #ffffff 0%,
@@ -73,7 +153,7 @@
     );
     border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 4px 14px rgba(0, 0, 0, 0.15),
         0 1px 3px rgba(0, 0, 0, 0.1),
         inset 0 -8px 20px rgba(200, 210, 230, 0.3),
         inset 0 4px 10px rgba(255, 255, 255, 0.9);
@@ -85,8 +165,8 @@
 .tooth-root-right {
     position: absolute;
     bottom: -2px;
-    width: 16px;
-    height: 24px;
+    width: 12px;
+    height: 16px;
     background: linear-gradient(
         180deg,
         #f0f4ff 0%,
@@ -112,14 +192,14 @@
     border-top: none;
 }
 
-/* Crown (Golden) */
+/* Crown (Golden) — sits ON TOP of tooth body, no overlap */
 .tooth-crown {
     position: absolute;
-    top: -6px;
+    top: 2px;
     left: 50%;
     transform: translateX(-50%);
-    width: 34px;
-    height: 20px;
+    width: 32px;
+    height: 18px;
     z-index: 3;
 }
 
@@ -132,19 +212,19 @@
 /* Face — Eyes */
 .tooth-face {
     position: absolute;
-    top: 18px;
+    top: 9px;
     left: 50%;
     transform: translateX(-50%);
-    width: 42px;
-    height: 32px;
+    width: 34px;
+    height: 28px;
     z-index: 2;
 }
 
 .eye {
     position: absolute;
     top: 0;
-    width: 11px;
-    height: 12px;
+    width: 9px;
+    height: 10px;
     background: #1a1a2e;
     border-radius: 50%;
     box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.3);
@@ -154,28 +234,28 @@
 .eye::after {
     content: '';
     position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 4px;
-    height: 4px;
+    top: 1px;
+    right: 1px;
+    width: 3.5px;
+    height: 3.5px;
     background: white;
     border-radius: 50%;
 }
 
 .eye-left {
-    left: 5px;
+    left: 4px;
 }
 
 .eye-right {
-    right: 5px;
+    right: 4px;
 }
 
 /* Blush cheeks */
 .blush {
     position: absolute;
-    top: 14px;
-    width: 10px;
-    height: 6px;
+    top: 12px;
+    width: 8px;
+    height: 5px;
     background: rgba(255, 150, 170, 0.5);
     border-radius: 50%;
 }
@@ -194,8 +274,8 @@
     bottom: 3px;
     left: 50%;
     transform: translateX(-50%);
-    width: 16px;
-    height: 8px;
+    width: 13px;
+    height: 6px;
     border-bottom: 2.5px solid #e85d75;
     border-radius: 0 0 50% 50%;
 }
@@ -203,8 +283,8 @@
 /* Sparkle effects */
 .sparkle {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     z-index: 5;
 }
 
@@ -231,21 +311,21 @@
 }
 
 .sparkle-1 {
-    top: 2px;
-    right: 8px;
+    top: 4px;
+    right: 4px;
     animation: sparkleFlash 2s ease-in-out infinite 0s;
 }
 
 .sparkle-2 {
-    top: 18px;
-    left: 8px;
+    top: 14px;
+    left: 2px;
     animation: sparkleFlash 2s ease-in-out infinite 0.7s;
     transform: scale(0.7);
 }
 
 .sparkle-3 {
-    bottom: 20px;
-    right: 4px;
+    bottom: 14px;
+    right: 2px;
     animation: sparkleFlash 2s ease-in-out infinite 1.3s;
     transform: scale(0.5);
 }
@@ -258,8 +338,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 90px;
-    height: 90px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     background: radial-gradient(
@@ -278,8 +358,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 65px;
-    height: 65px;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     border: 1.5px solid rgba(212, 175, 55, 0.12);
@@ -310,13 +390,13 @@
    ============================================ */
 .bot-tooltip {
     position: absolute;
-    bottom: 112px;
-    right: -15px;
-    min-width: 230px;
+    bottom: 120px;
+    right: -12px;
+    min-width: 240px;
     padding: 14px 20px;
     border-radius: 16px;
     font-family: 'Cairo', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 600;
     line-height: 1.7;
     color: #ffffff;
@@ -461,73 +541,240 @@
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (max-width: 768px)
    ============================================ */
 @media (max-width: 768px) {
     #custom-3d-bot {
-        width: 70px;
-        height: 70px;
-        bottom: 18px;
+        width: 72px;
+        height: 72px;
+        bottom: 20px;
         right: 18px;
     }
 
     .tooth-mascot {
-        width: 70px;
-        height: 70px;
+        width: 72px;
+        height: 72px;
     }
 
     .tooth-body {
-        width: 42px;
+        top: 17px;
+        width: 46px;
         height: 46px;
     }
 
     .tooth-crown {
-        width: 24px;
+        width: 30px;
+        height: 17px;
+        top: 2px;
+    }
+
+    .tooth-face {
+        width: 32px;
+        height: 26px;
+        top: 8px;
+    }
+
+    .eye {
+        width: 8px;
+        height: 9px;
+    }
+
+    .eye-left {
+        left: 4px;
+    }
+
+    .eye-right {
+        right: 4px;
+    }
+
+    .blush {
+        width: 7px;
+        height: 5px;
+        top: 11px;
+    }
+
+    .smile {
+        width: 12px;
+        height: 6px;
+        border-bottom-width: 2.5px;
+    }
+
+    .tooth-root-left,
+    .tooth-root-right {
+        width: 11px;
         height: 14px;
-        top: -8px;
+    }
+
+    .bot-notification-dot {
+        top: 1px;
+        right: 8px;
+        width: 11px;
+        height: 11px;
+    }
+
+    .sparkle {
+        width: 5px;
+        height: 5px;
     }
 
     .bot-tooltip {
-        min-width: 200px;
-        font-size: 0.82rem;
+        min-width: 210px;
+        font-size: 0.85rem;
         padding: 12px 16px;
-        bottom: 80px;
-        right: -25px;
+        bottom: 82px;
+        right: -20px;
     }
 
     .floating-wa {
         left: 18px !important;
-        bottom: 18px !important;
+        bottom: 20px !important;
+        width: 64px !important;
+        height: 64px !important;
+        font-size: 2rem !important;
+    }
+
+    /* Back-to-top: above WA. WA=64px at bottom:20px left:18px → top=84. BTT=40px centered → left:30px bottom:96px */
+    .back-to-top {
+        bottom: 96px !important;
+        left: 30px !important;
+        right: auto !important;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1rem !important;
+    }
+
+    .bot-close-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    #custom-3d-bot::before {
+        width: 68px;
+        height: 68px;
+    }
+
+    #custom-3d-bot::after {
+        width: 58px;
+        height: 58px;
     }
 }
 
+/* ============================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ============================================ */
 @media (max-width: 480px) {
     #custom-3d-bot {
-        width: 60px;
-        height: 60px;
-        bottom: 14px;
+        width: 68px;
+        height: 68px;
+        bottom: 16px;
         right: 14px;
     }
 
     .tooth-mascot {
-        width: 60px;
-        height: 60px;
+        width: 68px;
+        height: 68px;
     }
 
     .tooth-body {
-        width: 36px;
-        height: 40px;
+        top: 16px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .tooth-crown {
+        width: 28px;
+        height: 16px;
+        top: 2px;
+    }
+
+    .tooth-face {
+        width: 30px;
+        height: 24px;
+        top: 7px;
+    }
+
+    .eye {
+        width: 8px;
+        height: 9px;
+    }
+
+    .eye-left {
+        left: 3px;
+    }
+
+    .eye-right {
+        right: 3px;
+    }
+
+    .blush {
+        width: 7px;
+        height: 4px;
+        top: 10px;
+    }
+
+    .smile {
+        width: 11px;
+        height: 5px;
+        border-bottom-width: 2px;
+    }
+
+    .tooth-root-left,
+    .tooth-root-right {
+        width: 10px;
+        height: 13px;
+    }
+
+    .bot-notification-dot {
+        top: 1px;
+        right: 6px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .sparkle {
+        width: 4px;
+        height: 4px;
     }
 
     .bot-tooltip {
-        min-width: 170px;
-        font-size: 0.78rem;
-        bottom: 68px;
-        right: -30px;
+        min-width: 190px;
+        font-size: 0.82rem;
+        bottom: 76px;
+        right: -25px;
     }
 
     .floating-wa {
         left: 14px !important;
-        bottom: 14px !important;
+        bottom: 16px !important;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.9rem !important;
+    }
+
+    /* Back-to-top: above WA. WA=60px at bottom:16px left:14px → top=76. BTT=36px centered → left:26px bottom:86px */
+    .back-to-top {
+        bottom: 86px !important;
+        left: 26px !important;
+        right: auto !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .bot-close-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.4rem;
+    }
+
+    #custom-3d-bot::before {
+        width: 64px;
+        height: 64px;
+    }
+
+    #custom-3d-bot::after {
+        width: 54px;
+        height: 54px;
     }
 }

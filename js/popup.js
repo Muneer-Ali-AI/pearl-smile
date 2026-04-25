@@ -1,5 +1,5 @@
-/**
- * Pearl Smile — Lead Capture Popup
+﻿/**
+ * Demo Dental — Lead Capture Popup
  * Self-contained: injects its own CSS + HTML
  * Triggers: Exit-intent (desktop), Timer (10s), Scroll 50% (mobile)
  */
