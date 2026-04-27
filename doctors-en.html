@@ -1,20 +1,20 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Dentists in Riyadh | Demo Dental Clinic Team ‚Äî Certified Consultants &amp; Specialists</title>
+    <title>Dentists in Riyadh | Demo Dental Clinic Team ó Certified Consultants &amp; Specialists</title>
     <meta name="description"
-        content="Meet the doctors of Demo Dental Clinic in Riyadh ‚Äî Over 20 specialist dentists from top international universities. Consultants in implants, orthodontics, cosmetics, and Pediatric Dentistry. Book with your doctor now.">
+        content="Meet the doctors of Demo Dental Clinic in Riyadh ó Over 20 specialist dentists from top international universities. Consultants in implants, orthodontics, cosmetics, and Pediatric Dentistry. Book with your doctor now.">
     <meta name="keywords"
         content="dentists Riyadh, best dentist in Riyadh, dental implant consultant Riyadh, orthodontist, pediatric dentist Riyadh, dentist Al Olaya, cosmetic dentist Riyadh">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Dentists in Riyadh | Demo Dental Clinic Team">
     <meta property="og:description"
-        content="Meet Demo Dental Clinic's dental team in Riyadh ‚Äî elite certified consultants and specialists to ensure the best smile for you.">
+        content="Meet Demo Dental Clinic's dental team in Riyadh ó elite certified consultants and specialists to ensure the best smile for you.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://Demo Dental.sa/doctors.html">
     <meta property="og:image" content="https://Demo Dental.sa/img/og-doctors.jpg">
@@ -29,7 +29,7 @@
       "url": "https://Demo Dental.sa",
       "logo": "https://Demo Dental.sa/img/logo.png",
       "image": "https://Demo Dental.sa/img/hero_bg_1772314136524.png",
-      "description": "Demo Dental Dental Clinic in Riyadh ‚Äî an elite group of the most skilled dentists in the Kingdom.",
+      "description": "Demo Dental Dental Clinic in Riyadh ó an elite group of the most skilled dentists in the Kingdom.",
       "telephone": "920XXXXXX",
       "address": {
         "@type": "PostalAddress",
@@ -96,8 +96,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+    (function(){
+        setTimeout(function(){
+            var testI = document.createElement('i');
+            testI.className = 'fa fa-check';
+            testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+            document.body.appendChild(testI);
+            var cs = window.getComputedStyle(testI);
+            var fontFamily = cs.getPropertyValue('font-family');
+            document.body.removeChild(testI);
+            if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+            }
+        }, 1500);
+    })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
@@ -132,7 +153,7 @@
         </div>
     </div>
 
-    <!-- B. Sticky Header/Navigation ‚Äî Inner Page Style -->
+    <!-- B. Sticky Header/Navigation ó Inner Page Style -->
     <header class="header inner-page-header" id="header">
         <div class="container header-container">
             <a href="index-en-en.html" class="logo">
@@ -169,7 +190,7 @@
     <main>
 
         <!-- ======================================================
-             SECTION 1 ‚Äî Page Hero (50vh)
+             SECTION 1 ó Page Hero (50vh)
         ====================================================== -->
         <section class="doctors-hero page-hero" id="page-hero">
             <div class="hero-overlay docs-hero-overlay"></div>
@@ -181,7 +202,7 @@
                 </div>
                 <h1 class="docs-hero-h1 fade-in-up" style="animation-delay:0.3s;">Doctors You Trust<br>For a Lasting Smile</h1>
                 <p class="docs-hero-subtitle fade-in-up" style="animation-delay:0.5s;">
-                    Our team consists of the most skilled dentists in Riyadh ‚Äî graduates from the best universities in the UK, USA, and Germany,
+                    Our team consists of the most skilled dentists in Riyadh ó graduates from the best universities in the UK, USA, and Germany,
                     with a combined experience exceeding <strong>80 years</strong> and over <strong>10,000 successful cases</strong>.
                     Each of our doctors is a specialist in their field and a professional in human interaction.
                 </p>
@@ -202,7 +223,7 @@
                     </div>
                     <div class="dhs-divider"></div>
                     <div class="dhs-item">
-                        <span class="dhs-num">5 ‚≠ê</span>
+                        <span class="dhs-num">5 ?</span>
                         <span class="dhs-label">Google Rating</span>
                     </div>
                 </div>
@@ -211,7 +232,7 @@
 
 
         <!-- ======================================================
-             SECTION 2 ‚Äî Why Our Doctors Are Different
+             SECTION 2 ó Why Our Doctors Are Different
         ====================================================== -->
         <section class="doctors-trust-premium section-padding bg-light">
             <div class="container">
@@ -273,14 +294,14 @@
 
 
         <!-- ======================================================
-             SECTION 3 ‚Äî Meet Our Doctors (Main Premium Section)
+             SECTION 3 ó Meet Our Doctors (Main Premium Section)
         ====================================================== -->
         <section class="doctors-profiles section-padding">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
                     <p class="section-subtitle">Meet Our Doctors</p>
                     <h2 class="section-title">An Elite Group of Specialists at Your Service</h2>
-                    <p class="docs-section-desc">Choose your doctor and book your appointment directly ‚Äî or let us choose the most suitable doctor for your case
+                    <p class="docs-section-desc">Choose your doctor and book your appointment directly ó or let us choose the most suitable doctor for your case
                     </p>
                 </div>
 
@@ -331,10 +352,10 @@
                                     & Accreditations:</h4>
                                 <ul class="pdc-cred-list">
                                     <li><i class="fa-solid fa-check-circle"></i> Fellowship of the Royal College of Surgeons
-                                        of England ‚Äî London</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Dental Implants ‚Äî University of Manchester,
+                                        of England ó London</li>
+                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Dental Implants ó University of Manchester,
                                         UK</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Bachelor of Dental Surgery ‚Äî King Saud
+                                    <li><i class="fa-solid fa-check-circle"></i> Bachelor of Dental Surgery ó King Saud
                                         University</li>
                                 </ul>
                             </div>
@@ -391,16 +412,16 @@
                             </div>
 
                             <p class="pdc-bio">
-                                Specialized in Orthodontics with the latest digital technologies. 10 years of experience in correcting bite and jaw problems for adults and children. Certified as a Diamond Level Invisalign provider ‚Äî the highest classification given to orthodontists. She believes every patient deserves a straight, beautiful smile in the shortest possible treatment time.
+                                Specialized in Orthodontics with the latest digital technologies. 10 years of experience in correcting bite and jaw problems for adults and children. Certified as a Diamond Level Invisalign provider ó the highest classification given to orthodontists. She believes every patient deserves a straight, beautiful smile in the shortest possible treatment time.
                             </p>
 
                             <div class="pdc-credentials">
                                 <h4 class="pdc-cred-title"><i class="fa-solid fa-user-graduate"></i> Qualifications
                                     & Accreditations:</h4>
                                 <ul class="pdc-cred-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Orthodontics ‚Äî Queen Mary
+                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Orthodontics ó Queen Mary
                                         University, London</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Certified Invisalign Provider ‚Äî Diamond Level
+                                    <li><i class="fa-solid fa-check-circle"></i> Certified Invisalign Provider ó Diamond Level
                                     </li>
                                     <li><i class="fa-solid fa-check-circle"></i> Member of the British Orthodontic Society
                                     </li>
@@ -459,18 +480,18 @@
                             </div>
 
                             <p class="pdc-bio">
-                                The Smile Artist ‚Äî that's how his patients describe him. Over 12 years specializing in cosmetic dentistry and smile design. Designed over 2,000 successful Hollywood smiles. Combines artistic sense with scientific precision to design perfect natural smiles that uniquely suit every patient's features.
+                                The Smile Artist ó that's how his patients describe him. Over 12 years specializing in cosmetic dentistry and smile design. Designed over 2,000 successful Hollywood smiles. Combines artistic sense with scientific precision to design perfect natural smiles that uniquely suit every patient's features.
                             </p>
 
                             <div class="pdc-credentials">
                                 <h4 class="pdc-cred-title"><i class="fa-solid fa-user-graduate"></i> Qualifications
                                     & Accreditations:</h4>
                                 <ul class="pdc-cred-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> Fellowship in Cosmetic Dentistry ‚Äî American
+                                    <li><i class="fa-solid fa-check-circle"></i> Fellowship in Cosmetic Dentistry ó American
                                         Academy of Cosmetic Dentistry (AACD)</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Diploma in Digital Smile Design ‚Äî DSD,
+                                    <li><i class="fa-solid fa-check-circle"></i> Diploma in Digital Smile Design ó DSD,
                                         Brazil</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Bachelor of Dentistry ‚Äî King Abdulaziz
+                                    <li><i class="fa-solid fa-check-circle"></i> Bachelor of Dentistry ó King Abdulaziz
                                         University</li>
                                 </ul>
                             </div>
@@ -527,16 +548,16 @@
                             </div>
 
                             <p class="pdc-bio">
-                                The favorite pediatric doctor ‚Äî distinguished by her unique ability to turn a dental visit into a fun adventure for young ones. Specialized in handling children with dental phobia. Uses advanced behavioral techniques and conscious sedation when needed to ensure a fear-free and painless experience for your child.
+                                The favorite pediatric doctor ó distinguished by her unique ability to turn a dental visit into a fun adventure for young ones. Specialized in handling children with dental phobia. Uses advanced behavioral techniques and conscious sedation when needed to ensure a fear-free and painless experience for your child.
                             </p>
 
                             <div class="pdc-credentials">
                                 <h4 class="pdc-cred-title"><i class="fa-solid fa-user-graduate"></i> Qualifications
                                     & Accreditations:</h4>
                                 <ul class="pdc-cred-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Pediatric Dentistry ‚Äî University of Leeds,
+                                    <li><i class="fa-solid fa-check-circle"></i> Masters in Pediatric Dentistry ó University of Leeds,
                                         UK</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> Certificate in Pediatric Conscious Sedation ‚Äî Royal
+                                    <li><i class="fa-solid fa-check-circle"></i> Certificate in Pediatric Conscious Sedation ó Royal
                                         College of Surgeons, UK</li>
                                     <li><i class="fa-solid fa-check-circle"></i> Member of the American Academy of Pediatric Dentistry
                                         (AAPD)</li>
@@ -564,7 +585,7 @@
 
 
         <!-- ======================================================
-             SECTION 4 ‚Äî Doctor Testimonials (Swiper Carousel)
+             SECTION 4 ó Doctor Testimonials (Swiper Carousel)
         ====================================================== -->
         <section class="doc-testimonials section-padding"
             style="background: linear-gradient(160deg, var(--navy) 0%, #16203A 100%); position:relative; overflow:hidden;">
@@ -611,7 +632,7 @@
                             <div class="dt-card">
                                 <div class="dt-quote-icon"><i class="fa-solid fa-quote-right"></i></div>
                                 <p class="dt-text">
-                                    "My 6 year old daughter used to scream in fear when going to any dentist. Once she saw Dr. Noura the situation changed 180 degrees! Her interaction with kids is incredible ‚Äî she plays with them and makes them feel like heroes. Now my daughter loves going to the clinic!"
+                                    "My 6 year old daughter used to scream in fear when going to any dentist. Once she saw Dr. Noura the situation changed 180 degrees! Her interaction with kids is incredible ó she plays with them and makes them feel like heroes. Now my daughter loves going to the clinic!"
                                 </p>
                                 <div class="dt-stars">
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -659,7 +680,7 @@
                             <div class="dt-card">
                                 <div class="dt-quote-icon"><i class="fa-solid fa-quote-right"></i></div>
                                 <p class="dt-text">
-                                    "I needed braces and was afraid of the metal look. Dr. Fatima recommended clear aligners and it was an amazing result ‚Äî no one noticed I was wearing braces! I finished in just 10 months and my teeth became straight and aligned. Thank you from the bottom of my heart."
+                                    "I needed braces and was afraid of the metal look. Dr. Fatima recommended clear aligners and it was an amazing result ó no one noticed I was wearing braces! I finished in just 10 months and my teeth became straight and aligned. Thank you from the bottom of my heart."
                                 </p>
                                 <div class="dt-stars">
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -689,7 +710,7 @@
 
 
         <!-- ======================================================
-             SECTION 5 ‚Äî Choosing the Right Doctor (V2 Cinematic)
+             SECTION 5 ó Choosing the Right Doctor (V2 Cinematic)
         ====================================================== -->
         <section class="dgv2-section">
             <!-- Decorative BG Orbs -->
@@ -723,7 +744,7 @@
 
                     <!-- STEP 1 -->
                     <div class="dgv2-step" data-aos="fade-up" data-aos-delay="100">
-                        <div class="dgv2-step-num">Ÿ°</div>
+                        <div class="dgv2-step-num">1</div>
                         <div class="dgv2-glass-card">
                             <div class="dgv2-card-inner">
                                 <div class="dgv2-icon-ring dgv2-ring-green">
@@ -741,7 +762,7 @@
 
                     <!-- STEP 2 -->
                     <div class="dgv2-step" data-aos="fade-up" data-aos-delay="250">
-                        <div class="dgv2-step-num">Ÿ¢</div>
+                        <div class="dgv2-step-num">2</div>
                         <div class="dgv2-glass-card">
                             <div class="dgv2-card-inner">
                                 <div class="dgv2-icon-ring dgv2-ring-gold">
@@ -759,7 +780,7 @@
 
                     <!-- STEP 3 -->
                     <div class="dgv2-step" data-aos="fade-up" data-aos-delay="400">
-                        <div class="dgv2-step-num">Ÿ£</div>
+                        <div class="dgv2-step-num">3</div>
                         <div class="dgv2-glass-card">
                             <div class="dgv2-card-inner">
                                 <div class="dgv2-icon-ring dgv2-ring-blue">
@@ -767,7 +788,7 @@
                                 </div>
                                 <div class="dgv2-card-text">
                                     <h3>Your Smile Begins</h3>
-                                    <p>Book your appointment and start your journey ‚Äî the first consultation is free and you will leave with a clear treatment plan</p>
+                                    <p>Book your appointment and start your journey ó the first consultation is free and you will leave with a clear treatment plan</p>
                                 </div>
                             </div>
                             <div class="dgv2-card-glow dgv2-glow-blue"></div>
@@ -779,7 +800,7 @@
                 <div class="dgv2-cta-strip" data-aos="fade-up" data-aos-delay="500">
                     <div class="dgv2-cta-text">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <span>Free Consultation ¬∑ No Commitment ¬∑ Same Day Results</span>
+                        <span>Free Consultation ∑ No Commitment ∑ Same Day Results</span>
                     </div>
                     <div class="dgv2-cta-btns">
                         <a href="https://wa.me/966XXXXXXXXX?text=Hello,%20I%20need%20help%20choosing%20the%20right%20doctor%20for%20my%20condition"
@@ -799,7 +820,7 @@
 
 
         <!-- ======================================================
-             SECTION 6 ‚Äî Final CTA
+             SECTION 6 ó Final CTA
         ====================================================== -->
         <section class="docs-final-cta section-padding">
             <div class="docs-cta-bg-pattern"></div>
@@ -840,7 +861,7 @@
                     <a href="index-en.html" class="logo footer-logo">
                         <span class="logo-gold">Demo</span><span class="logo-white">Dental</span>
                     </a>
-                    <p>Demo Dental Clinic ‚Äî Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
+                    <p>Demo Dental Clinic ó Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
                         technology to give you a lasting smile.</p>
                     <div class="social-icons footer-social">
                         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>

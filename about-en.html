@@ -1,13 +1,13 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>About Us | Demo Dental Clinic â€” Best Dental Clinic in Riyadh Since 2009</title>
+    <title>About Us | Demo Dental Clinic — Best Dental Clinic in Riyadh Since 2009</title>
     <meta name="description"
-        content="Discover Demo Dental Clinic in Riyadh â€” over 15 years of dental excellence. A team of 20+ specialists and the latest German and Swiss technologies. Explore our story and vision.">
+        content="Discover Demo Dental Clinic in Riyadh — over 15 years of dental excellence. A team of 20+ specialists and the latest German and Swiss technologies. Explore our story and vision.">
     <meta name="keywords"
         content="dental clinic Riyadh, about Demo Dental, best dental clinic Saudi Arabia, specialist dentists Riyadh, dental clinic Al Olaya, advanced dentistry Riyadh">
 
@@ -52,7 +52,7 @@
     </script>
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="About Us | Demo Dental Clinic â€” Best Dental Clinic in Riyadh">
+    <meta property="og:title" content="About Us | Demo Dental Clinic — Best Dental Clinic in Riyadh">
     <meta property="og:description"
         content="Discover our success story and vision. Over 15 years of medical excellence in Riyadh, with a team of 20+ specialists to provide the best care for your smile.">
     <meta property="og:type" content="website">
@@ -63,8 +63,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+    (function(){
+        setTimeout(function(){
+            var testI = document.createElement('i');
+            testI.className = 'fa fa-check';
+            testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+            document.body.appendChild(testI);
+            var cs = window.getComputedStyle(testI);
+            var fontFamily = cs.getPropertyValue('font-family');
+            document.body.removeChild(testI);
+            if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+            }
+        }, 1500);
+    })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
@@ -135,7 +156,7 @@
 
     <main>
 
-        <!-- SECTION 1 â€” Page Hero -->
+        <!-- SECTION 1 — Page Hero -->
         <section class="about-hero page-hero" id="page-hero">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
@@ -144,13 +165,13 @@
                 </div>
                 <h1 class="fade-in-up" style="animation-delay: 0.3s;">Our Story Is the Story of Every Smile We Created</h1>
                 <p class="hero-subtitle fade-in-up" style="animation-delay: 0.5s;">
-                    Since 2009, we have been setting new standards in dentistry in Riyadh â€” combining world-class medical expertise and
+                    Since 2009, we have been setting new standards in dentistry in Riyadh — combining world-class medical expertise and
                     exceptional human care to give every patient a smile they can be proud of.
                 </p>
             </div>
         </section>
 
-        <!-- SECTION 2 â€” Our Story (Timeline) -->
+        <!-- SECTION 2 — Our Story (Timeline) -->
         <section class="our-story section-padding">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -166,7 +187,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content right-side">
                             <span class="timeline-year">2009</span>
-                            <h3>The Beginning â€” A Dream Becomes Reality</h3>
+                            <h3>The Beginning — A Dream Becomes Reality</h3>
                             <p>Demo Dental's journey began in Al Olaya, Riyadh, with a small clinic and one doctor carrying an ambitious vision: to
                                 provide Riyadh residents with dental care that meets international standards. We opened our doors with three treatment
                                 chairs and a firm belief that every patient deserves the best.</p>
@@ -178,7 +199,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content left-side">
                             <span class="timeline-year">2013</span>
-                            <h3>Expansion â€” From Clinic to Comprehensive Center</h3>
+                            <h3>Expansion — From Clinic to Comprehensive Center</h3>
                             <p>Our team grew to include 10 doctors from various specialties. We opened specialized departments for orthodontics and
                                 pediatric dentistry. Our patient count exceeded 3,000 annually, and we began building our reputation as one of Riyadh's
                                 most trusted clinics.</p>
@@ -190,7 +211,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content right-side">
                             <span class="timeline-year">2017</span>
-                            <h3>The Digital Revolution â€” Adopting the Latest Technologies</h3>
+                            <h3>The Digital Revolution — Adopting the Latest Technologies</h3>
                             <p>We were among the first clinics in Riyadh to fully adopt digital dentistry: 3D scanner,
                                 digital panoramic X-ray, and computer-guided dental implants. This technological leap
                                 improved the precision of our treatments and gave patients better results and a more comfortable experience.</p>
@@ -202,7 +223,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content left-side">
                             <span class="timeline-year">2021</span>
-                            <h3>Recognition â€” International Awards and Accreditations</h3>
+                            <h3>Recognition — International Awards and Accreditations</h3>
                             <p>Our efforts were crowned with the Best Dental Clinic in Riyadh award and ISO
                                 9001 International Accreditation. Our patient count exceeded 8,000 and our team grew to 15 doctors across various subspecialties.
                             </p>
@@ -214,7 +235,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content right-side">
                             <span class="timeline-year">2025</span>
-                            <h3>The Present â€” Continued Leadership and Vision for the Future</h3>
+                            <h3>The Present — Continued Leadership and Vision for the Future</h3>
                             <p>Today we are proud of a team of over 20 specialists from top universities in the UK, USA
                                 and Germany. We have created over 10,000 happy smiles, and continue investing in the latest
                                 dental technologies to remain the first choice for Riyadh residents and visitors.</p>
@@ -224,7 +245,7 @@
             </div>
         </section>
 
-        <!-- SECTION 3 â€” Mission, Vision & Values -->
+        <!-- SECTION 3 — Mission, Vision & Values -->
         <section class="clinic-values section-padding bg-light">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -237,7 +258,7 @@
                         <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
                         <h3>Our Mission</h3>
                         <p>To provide every patient who visits our clinic with exceptional dental care that combines the highest international medical
-                            standards and outstanding human experience. We strive for every patient to feel comfort, confidence and personal attention â€” from the moment
+                            standards and outstanding human experience. We strive for every patient to feel comfort, confidence and personal attention — from the moment
                             they enter until their last follow-up session.</p>
                     </div>
 
@@ -263,7 +284,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4 â€” Technology & Equipment -->
+        <!-- SECTION 4 — Technology & Equipment -->
         <section class="advanced-tech section-padding">
             <div class="container">
                 <div class="tech-layout">
@@ -271,7 +292,7 @@
                         <div class="section-header">
                             <p class="section-subtitle">Our Technologies</p>
                             <h2 class="section-title">We Invest in the Latest Technologies to Serve You</h2>
-                            <p class="subtitle-text">We believe advanced technology is not a luxury â€” it is a right for every patient who deserves
+                            <p class="subtitle-text">We believe advanced technology is not a luxury — it is a right for every patient who deserves
                                 the best results with the least pain and fastest time.</p>
                         </div>
 
@@ -312,7 +333,7 @@
                             <div class="tech-icon"><i class="fa-solid fa-shield-virus"></i></div>
                             <div class="tech-content">
                                 <h3>Central Autoclave Sterilization System</h3>
-                                <p>Complete sterilization of all tools and equipment at 134Â°C under high pressure. We follow infection control protocols
+                                <p>Complete sterilization of all tools and equipment at 134°C under high pressure. We follow infection control protocols
                                     approved by the Saudi Ministry of Health and the World Health Organization.</p>
                             </div>
                         </div>
@@ -321,7 +342,7 @@
             </div>
         </section>
 
-        <!-- SECTION 5 â€” Awards & Certifications -->
+        <!-- SECTION 5 — Awards & Certifications -->
         <section class="awards-section section-padding bg-light">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -365,7 +386,7 @@
             </div>
         </section>
 
-        <!-- SECTION 6 â€” Clinic Numbers / Impact -->
+        <!-- SECTION 6 — Clinic Numbers / Impact -->
         <!-- Using ID stats-section so the JS counter animates exactly as in index.html -->
         <section class="trust-numbers about-impact bg-navy light-text" id="stats-section">
             <div class="container">
@@ -402,7 +423,7 @@
             </div>
         </section>
 
-        <!-- SECTION 7 â€” Pre-footer CTA -->
+        <!-- SECTION 7 — Pre-footer CTA -->
         <section class="about-cta section-padding"
             style="background: url('img/hero_bg_1772314136524.png') center/cover no-repeat; position: relative;">
             <div class="cta-overlay"
@@ -441,7 +462,7 @@
                     <a href="index-en.html" class="logo footer-logo">
                         <span class="logo-gold">Demo</span><span class="logo-white">Dental</span>
                     </a>
-                    <p>Demo Dental Clinic â€” Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
+                    <p>Demo Dental Clinic — Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
                         technology to give you a lasting smile.</p>
                     <div class="social-icons footer-social">
                         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>

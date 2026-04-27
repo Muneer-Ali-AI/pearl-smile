@@ -45,8 +45,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+    (function(){
+        setTimeout(function(){
+            var testI = document.createElement('i');
+            testI.className = 'fa fa-check';
+            testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+            document.body.appendChild(testI);
+            var cs = window.getComputedStyle(testI);
+            var fontFamily = cs.getPropertyValue('font-family');
+            document.body.removeChild(testI);
+            if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+            }
+        }, 1500);
+    })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"

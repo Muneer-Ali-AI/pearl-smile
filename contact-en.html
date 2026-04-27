@@ -1,13 +1,13 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Book Appointment | Demo Dental Clinic â€” Contact Us in Riyadh</title>
+    <title>Book Appointment | Demo Dental Clinic — Contact Us in Riyadh</title>
     <meta name="description"
-        content="Book your appointment at Demo Dental Clinic in Riyadh â€” Al Olaya. Free Initial Consultation. Call 0114646334 or Chat on WhatsApp. Flexible hours Sat-Thu 9AM-9PM. Implants, Whitening, Orthodontics, Cosmetic Dentistry.">
+        content="Book your appointment at Demo Dental Clinic in Riyadh — Al Olaya. Free Initial Consultation. Call 0114646334 or Chat on WhatsApp. Flexible hours Sat-Thu 9AM-9PM. Implants, Whitening, Orthodontics, Cosmetic Dentistry.">
     <meta name="keywords"
         content="book dental appointment Riyadh, dental clinic Al Olaya, Demo Dental Clinic number, dental clinic location Riyadh, book free dental consultation, dental clinic near me Riyadh">
 
@@ -63,7 +63,7 @@
     </script>
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Book Appointment | Demo Dental Clinic â€” Contact Us in Riyadh">
+    <meta property="og:title" content="Book Appointment | Demo Dental Clinic — Contact Us in Riyadh">
     <meta property="og:description"
         content="Free Initial Consultation. Book Your Appointment Now at Demo Dental Dental Clinic in Riyadh.">
     <meta property="og:url" content="https://Demo Dental.sa/contact.html">
@@ -75,8 +75,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+    (function(){
+        setTimeout(function(){
+            var testI = document.createElement('i');
+            testI.className = 'fa fa-check';
+            testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+            document.body.appendChild(testI);
+            var cs = window.getComputedStyle(testI);
+            var fontFamily = cs.getPropertyValue('font-family');
+            document.body.removeChild(testI);
+            if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+            }
+        }, 1500);
+    })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
@@ -112,7 +133,7 @@
         </div>
     </div>
 
-    <!-- B. Sticky Header/Navigation â€” Solid variants for inner pages -->
+    <!-- B. Sticky Header/Navigation — Solid variants for inner pages -->
     <header class="header header-inner-page" id="header">
         <div class="container header-container">
             <a href="index-en-en.html" class="logo">
@@ -150,7 +171,7 @@
     <main>
 
         <!-- ======================================================
-             SECTION 1 â€” Contact Page Hero (Compact)
+             SECTION 1 — Contact Page Hero (Compact)
         ====================================================== -->
         <section class="contact-hero">
             <div class="contact-hero-overlay"></div>
@@ -161,7 +182,7 @@
 
                 <h1 class="fade-in-up" style="animation-delay: 0.2s;">Book Your Appointment in One Minute</h1>
                 <p class="contact-hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
-                    Your first consultation is completely free â€” Choose the method that suits you and we'll contact you within 30 minutes to confirm your appointment.
+                    Your first consultation is completely free — Choose the method that suits you and we'll contact you within 30 minutes to confirm your appointment.
                 </p>
 
                 <div class="contact-hero-actions fade-in-up" style="animation-delay: 0.4s;">
@@ -181,7 +202,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 2 â€” Smart Booking Form + Contact Info
+             SECTION 2 — Smart Booking Form + Contact Info
         ====================================================== -->
         <section class="booking-section section-padding" id="booking-form-section">
             <div class="container">
@@ -245,10 +266,10 @@
                                         <i class="fa-solid fa-user-doctor"></i>
                                         <select id="preferredDoctor" name="preferredDoctor">
                                             <option value="Any Available Doctor" selected>Any available doctor (we recommend the most suitable)</option>
-                                            <option value="Dr. Ahmed Al-Rashedi">Dr. Ahmed Al-Rashedi â€” Implants & Surgery</option>
-                                            <option value="Dr. Fatima Al-Hassan">Dr. Fatima Al-Hassan â€” Orthodontics</option>
-                                            <option value="Dr. Khalid Al-Mansour">Dr. Khalid Al-Mansour â€” Cosmetics</option>
-                                            <option value="Dr. Noura Al-Otaibi">Dr. Noura Al-Otaibi â€” Pediatrics</option>
+                                            <option value="Dr. Ahmed Al-Rashedi">Dr. Ahmed Al-Rashedi — Implants & Surgery</option>
+                                            <option value="Dr. Fatima Al-Hassan">Dr. Fatima Al-Hassan — Orthodontics</option>
+                                            <option value="Dr. Khalid Al-Mansour">Dr. Khalid Al-Mansour — Cosmetics</option>
+                                            <option value="Dr. Noura Al-Otaibi">Dr. Noura Al-Otaibi — Pediatrics</option>
                                         </select>
                                         <i class="fa-solid fa-chevron-down select-arrow"></i>
                                     </div>
@@ -288,7 +309,7 @@
                             <button type="submit" class="btn btn-primary btn-full submit-booking-btn">Confirm
                                 Booking</button>
                             <p class="privacy-note"><i class="fa-solid fa-shield-halved"></i> Your data is completely confidential and protected
-                                â€” we will not share it with any party</p>
+                                — we will not share it with any party</p>
                         </form>
                     </div>
 
@@ -348,7 +369,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 3 â€” Working Hours
+             SECTION 3 — Working Hours
         ====================================================== -->
         <section class="working-hours section-padding bg-light">
             <div class="container">
@@ -410,14 +431,14 @@
                 </div>
 
                 <div class="emergency-note center" data-aos="fade-up">
-                    <p>ðŸš¨ <strong>Emergencies:</strong> For emergencies outside Working Hours, contact us via WhatsApp
+                    <p>?? <strong>Emergencies:</strong> For emergencies outside Working Hours, contact us via WhatsApp
                         and we will direct you to the nearest available option.</p>
                 </div>
             </div>
         </section>
 
         <!-- ======================================================
-             SECTION 4 â€” Interactive Map
+             SECTION 4 — Interactive Map
         ====================================================== -->
         <section class="map-section section-padding">
             <div class="container">
@@ -448,7 +469,7 @@
                     </div>
                     <div class="map-detail-item">
                         <i class="fa-solid fa-wheelchair"></i>
-                        <p><strong>Access:</strong> Ground floor â€” direct entry without stairs</p>
+                        <p><strong>Access:</strong> Ground floor — direct entry without stairs</p>
                     </div>
                 </div>
 
@@ -462,7 +483,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 5 â€” Quick Contact Options
+             SECTION 5 — Quick Contact Options
         ====================================================== -->
         <section class="quick-contact section-padding bg-dark">
             <div class="container">
@@ -475,7 +496,7 @@
                     <a href="tel:0114646334" class="qc-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="qc-icon"><i class="fa-solid fa-phone"></i></div>
                         <h3>Call Now</h3>
-                        <p>Speak with our team directly â€” we answer in seconds</p>
+                        <p>Speak with our team directly — we answer in seconds</p>
                         <span class="qc-btn">0114646334</span>
                     </a>
 
@@ -484,7 +505,7 @@
                         data-aos-delay="200">
                         <div class="qc-icon"><i class="fa-brands fa-whatsapp"></i></div>
                         <h3>Message us on WhatsApp</h3>
-                        <p>Send a message and we will reply within 5 minutes â€” even outside Working Hours</p>
+                        <p>Send a message and we will reply within 5 minutes — even outside Working Hours</p>
                         <span class="qc-btn">Start Chat</span>
                     </a>
 
@@ -500,7 +521,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 6 â€” FAQ (Contact-Specific)
+             SECTION 6 — FAQ (Contact-Specific)
         ====================================================== -->
         <section class="faq-section section-padding">
             <div class="container popup-faq-grid" style="align-items: flex-start;">
@@ -516,7 +537,7 @@
                                     class="fa-solid fa-chevron-down"></i></button>
                             <div class="faq-answer">
                                 <p>Yes, the first consultation is completely free with no obligation. The doctor examines your condition, takes
-                                    digital x-rays (if necessary), and creates a detailed treatment plan with estimated cost â€” all this without
+                                    digital x-rays (if necessary), and creates a detailed treatment plan with estimated cost — all this without
                                     any fees.</p>
                             </div>
                         </div>
@@ -540,7 +561,7 @@
                                     class="fa-solid fa-chevron-down"></i></button>
                             <div class="faq-answer">
                                 <p>Bring your National ID or Iqama, and your medical insurance card (if you have one). If
-                                    you have previous dental x-rays, bring them too â€” they will help the doctor in the diagnosis.</p>
+                                    you have previous dental x-rays, bring them too — they will help the doctor in the diagnosis.</p>
                             </div>
                         </div>
                         <div class="faq-item">
@@ -556,14 +577,14 @@
         </section>
 
         <!-- ======================================================
-             SECTION 7 â€” Final Urgency CTA
+             SECTION 7 — Final Urgency CTA
         ====================================================== -->
         <section class="final-cta section-padding"
             style="background: linear-gradient(135deg, var(--navy) 0%, #0a1f35 100%);">
             <div class="container center light-text">
-                <h2 class="mb-3" data-aos="fade-up">Don't delay your smile â€” Book today</h2>
+                <h2 class="mb-3" data-aos="fade-up">Don't delay your smile — Book today</h2>
                 <p class="mb-4" data-aos="fade-up" data-aos-delay="100" style="max-width:600px; margin:0 auto;">
-                    Every day delayed is a day without the smile you deserve. Our team is ready to welcome you â€” a Free Consultation and guaranteed results.
+                    Every day delayed is a day without the smile you deserve. Our team is ready to welcome you — a Free Consultation and guaranteed results.
                 </p>
                 <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200"
                     style="justify-content: center; gap:20px; margin-bottom: 30px;">
@@ -594,7 +615,7 @@
                     <a href="index-en.html" class="logo footer-logo">
                         <span class="logo-gold">Demo</span><span class="logo-white">Dental</span>
                     </a>
-                    <p>Demo Dental Clinic â€” Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
+                    <p>Demo Dental Clinic — Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern
                         technology to give you a lasting smile.</p>
                     <div class="social-icons footer-social">
                         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>

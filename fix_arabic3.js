@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let doc = fs.readFileSync('d:\\\\تطبيقات anyigravity\\\\Project 5\\\\doctors-en.html', 'utf8');
 doc = doc.replace(/فريقنا من أمهر أطباء الأسنان في Riyadh — خريجو أفضل الجامعات في بريطانيا وأمريكا وألمانيا،/g, '                    Our team consists of the most skilled dentists in Riyadh — graduates from the best universities in the UK, USA, and Germany,');
-doc = doc.replace(/بخبرة مشتركة تتجاوز <strong>٨٠ عاماً<\\/strong> وأكثر من <strong>١٠,٠٠٠ حالة ناجحة<\\/strong>\\./g, '                    with a combined experience exceeding <strong>80 years</strong> and over <strong>10,000 successful cases</strong>.');
+doc = doc.replace(/بخبرة مشتركة تتجاوز <strong>٨٠ عاماً<\\/strong > وأكثر من < strong >١٠,٠٠٠ حالة ناجحة <\\/strong>\\./g, '                    with a combined experience exceeding <strong>80 years</strong> and over <strong>10,000 successful cases</strong>.');
 doc = doc.replace(/كل طبيب لدينا متخصص في مجاله ومحترف في التعامل الإنساني\\./g, '                    Each of our doctors is a specialist in their field and a professional in human interaction.');
 
 doc = doc.replace(/أكثر من ١٥ عاماً من الخبرة في Dental Implants وOral & Maxillofacial Surgery\\. أجرى أكثر من ٣,٠٠٠/g, '                                Over 15 years of experience in Dental Implants and Oral & Maxillofacial Surgery. He has performed more than 3,000');

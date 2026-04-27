@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Demo Dental Clinic | Best Dental Clinic in Riyadh</title>
     <meta name="description"
-        content="Demo Dental Clinic â€” Your premier destination for exceptional dentistry in Riyadh. Meet the best dentists for a perfect smile.">
+        content="Demo Dental Clinic — Your premier destination for exceptional dentistry in Riyadh. Meet the best dentists for a perfect smile.">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -45,8 +45,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+    (function(){
+        setTimeout(function(){
+            var testI = document.createElement('i');
+            testI.className = 'fa fa-check';
+            testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+            document.body.appendChild(testI);
+            var cs = window.getComputedStyle(testI);
+            var fontFamily = cs.getPropertyValue('font-family');
+            document.body.removeChild(testI);
+            if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+            }
+        }, 1500);
+    })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
@@ -118,7 +139,7 @@
     <main>
 
 
-        <!-- C. SECTION 1 â€” Hero -->
+        <!-- C. SECTION 1 — Hero -->
         <section class="hero-v2" id="hero">
             <div class="hero-v2-bg">
                 <div class="hero-v2-bg-img"></div>
@@ -133,7 +154,7 @@
                 <div class="hero-v2-text">
                     <div class="hero-v2-eyebrow fade-in-up" style="animation-delay: 0.1s;">
                         <div class="eyebrow-line"></div>
-                        <span class="eyebrow-text">15+ Years Experience Â· Ministry of Health Certified</span>
+                        <span class="eyebrow-text">15+ Years Experience · Ministry of Health Certified</span>
                     </div>
 
                     <h1 class="hero-v2-h1 fade-in-up" style="animation-delay: 0.2s;">
@@ -142,7 +163,7 @@
                     </h1>
 
                     <p class="hero-v2-desc fade-in-up" style="animation-delay: 0.3s;">
-                        Join over <strong>10,000 patients</strong> who chose Demo Dental to transform their smiles. We combine the latest Swiss technologies with a world-class medical team to deliver results that exceed your expectations â€” <strong>pain-free</strong>.
+                        Join over <strong>10,000 patients</strong> who chose Demo Dental to transform their smiles. We combine the latest Swiss technologies with a world-class medical team to deliver results that exceed your expectations — <strong>pain-free</strong>.
                     </p>
 
                     <div class="hero-v2-ctas fade-in-up" style="animation-delay: 0.4s;">
@@ -209,7 +230,7 @@
 
                         <!-- Main Image -->
                         <div class="hero-v2-img-main">
-                            <img src="img/doctor_ahmed_1772314180569.png" alt="Perfect Smile â€” Demo Dental" loading="eager">
+                            <img src="img/doctor_ahmed_1772314180569.png" alt="Perfect Smile — Demo Dental" loading="eager">
                             <div class="img-overlay-v2"></div>
                         </div>
 
@@ -237,7 +258,7 @@
 
 
 
-        <!-- SECTION 2 â€” Stats Bar (Premium) -->
+        <!-- SECTION 2 — Stats Bar (Premium) -->
         <section class="stats-v2-section" id="stats-section">
             <div class="stats-v2-inner container">
                 <div class="stats-v2-grid">
@@ -279,7 +300,7 @@
 
 
 
-        <!-- SECTION 3 â€” Services -->
+        <!-- SECTION 3 — Services -->
         <section class="services section-padding" id="services">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -370,7 +391,7 @@
 
 
 
-        <!-- NEW SECTION B â€” How It Works / Patient Journey -->
+        <!-- NEW SECTION B — How It Works / Patient Journey -->
         <section class="patient-journey section-padding">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -414,7 +435,7 @@
 
 
 
-        <!-- SECTION 4 â€” About Preview -->
+        <!-- SECTION 4 — About Preview -->
         <section class="about-preview section-padding bg-light">
             <div class="container about-grid">
                 <div class="about-image-wrapper" data-aos="fade-left">
@@ -447,7 +468,7 @@
 
 
 
-        <!-- SECTION 5 â€” Why Choose Us (Dramatic Redesign - Light Theme) -->
+        <!-- SECTION 5 — Why Choose Us (Dramatic Redesign - Light Theme) -->
         <section class="features section-padding" id="why-us">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -493,7 +514,7 @@
                             <div class="feature-v2-icon"><i class="fa-solid fa-bell-concierge"></i></div>
                             <div class="feature-v2-text">
                                 <h3>Luxury Hotel-Like Experience</h3>
-                                <p>From the moment you enter, you'll feel like you're in a five-star hotel â€” elegant, comfortable with premium
+                                <p>From the moment you enter, you'll feel like you're in a five-star hotel — elegant, comfortable with premium
                                     hospitality</p>
                             </div>
                         </div>
@@ -526,7 +547,7 @@
 
 
 
-        <!-- SECTION 6 â€” Before & After Gallery -->
+        <!-- SECTION 6 — Before & After Gallery -->
         <section class="before-after section-padding bg-dark">
             <div class="container">
                 <div class="section-header center light-text" data-aos="fade-up">
@@ -615,7 +636,7 @@
 
 
 
-        <!-- SECTION 7 â€” Our Doctors -->
+        <!-- SECTION 7 — Our Doctors -->
         <section class="doctors section-padding">
             <div class="container">
                 <div class="section-header space-between" data-aos="fade-up">
@@ -680,7 +701,7 @@
 
 
 
-        <!-- SECTION 8 â€” Patient Testimonials (Dramatic Redesign - Light Theme) -->
+        <!-- SECTION 8 — Patient Testimonials (Dramatic Redesign - Light Theme) -->
         <section class="testimonials section-padding bg-light">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -708,7 +729,7 @@
                                             class="fa-solid fa-star"></i>
                                     </div>
                                     <p class="review-text">"I was terrified of dentists, but my experience at Demo Dental completely changed my perspective. Dr. Ahmed was incredibly patient and explained every step before
-                                        starting. The result was amazing â€” my teeth are now exactly what I dreamed of!"</p>
+                                        starting. The result was amazing — my teeth are now exactly what I dreamed of!"</p>
                                     <div class="reviewer-v2">
                                         <div class="reviewer-avatar">M</div>
                                         <div class="reviewer-info">
@@ -728,7 +749,7 @@
                                     </div>
                                     <p class="review-text">"I had laser teeth whitening and the result was stunning from the first session!
                                         The medical team is very professional and the clinic is spotless. I recommend everyone visit
-                                        Demo Dental â€” you won't regret it!"</p>
+                                        Demo Dental — you won't regret it!"</p>
                                     <div class="reviewer-v2">
                                         <div class="reviewer-avatar">S</div>
                                         <div class="reviewer-info">
@@ -788,7 +809,7 @@
             </div>
         </section>
 
-        <!-- NEW SECTION â€” Clinic Showcase -->
+        <!-- NEW SECTION — Clinic Showcase -->
         <section class="clinic-showcase section-padding bg-dark">
             <div class="container">
                 <div class="section-header center light-text" data-aos="fade-up">
@@ -879,7 +900,7 @@
 
 
 
-        <!-- NEW SECTION A â€” Special Offers & Packages -->
+        <!-- NEW SECTION A — Special Offers & Packages -->
         <section class="special-offers section-padding bg-light">
             <div class="container">
                 <div class="section-header center" data-aos="fade-up">
@@ -950,7 +971,7 @@
 
 
 
-        <!-- SECTION 5 â€” Why Choose Us -->
+        <!-- SECTION 5 — Why Choose Us -->
         <section class="faq-section section-padding">
             <div class="container popup-faq-grid">
                 <div class="faq-left" data-aos="fade-left">
@@ -1001,7 +1022,7 @@
 
 
 
-        <!-- SECTION 9 â€” Blog Preview -->
+        <!-- SECTION 9 — Blog Preview -->
         <section class="blog-preview section-padding">
             <div class="container">
                 <div class="section-header space-between" data-aos="fade-up">
@@ -1074,7 +1095,7 @@
 
 
 
-        <!-- SECTION 10 â€” Final Booking CTA -->
+        <!-- SECTION 10 — Final Booking CTA -->
         <section class="final-cta section-padding" id="booking">
             <div class="cta-overlay"></div>
             <div class="container cta-content" data-aos="zoom-in">
@@ -1118,7 +1139,7 @@
                     <a href="index-en.html" class="logo footer-logo">
                         <span class="logo-gold">Demo</span><span class="logo-white">Dental</span>
                     </a>
-                    <p>Demo Dental Clinic â€” Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern technology to give you a lasting smile.</p>
+                    <p>Demo Dental Clinic — Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise and modern technology to give you a lasting smile.</p>
                     <div class="social-icons footer-social">
                         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>

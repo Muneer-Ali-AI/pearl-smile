@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Dental Blog | Demo Dental Clinic Riyadh — Tips & Information from Our Doctors</title>
+    <title>Dental Blog | Demo Dental Clinic Riyadh � Tips & Information from Our Doctors</title>
     <meta name="description"
         content="Read the latest articles and tips about dental health from Demo Dental Clinic doctors in Riyadh. Reliable information about implants, whitening, orthodontics, pediatric dentistry, and more.">
     <meta name="keywords"
@@ -64,7 +64,29 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Font Awesome Fallback (if primary CDN fails) -->
+    <script>
+        (function () {
+            setTimeout(function () {
+                var testI = document.createElement('i');
+                testI.className = 'fa fa-check';
+                testI.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
+                document.body.appendChild(testI);
+                var cs = window.getComputedStyle(testI);
+                var fontFamily = cs.getPropertyValue('font-family');
+                document.body.removeChild(testI);
+                if (fontFamily.indexOf('Font Awesome') === -1 && fontFamily.indexOf('FontAwesome') === -1) {
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+                    link.crossOrigin = 'anonymous';
+                    document.head.appendChild(link);
+                    console.log('[FA Fallback] Primary CDN failed, loaded from jsDelivr');
+                }
+            }, 1500);
+        })();
+    </script>
 
     <!-- AOS.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
@@ -87,7 +109,7 @@
                     <span><i class="fa-solid fa-phone"></i> 0114646334</span>
                 </div>
                 <div class="info-right social-icons">
-                    
+
                     <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#" aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
@@ -97,7 +119,7 @@
         </div>
     </div>
 
-    <!-- B. Sticky Header/Navigation — Solid variants for inner pages -->
+    <!-- B. Sticky Header/Navigation � Solid variants for inner pages -->
     <header class="header header-inner-page" id="header">
         <div class="container header-container">
             <a href="index-en-en.html" class="logo">
@@ -135,7 +157,7 @@
     <main>
 
         <!-- ======================================================
-             SECTION 1 — Premium Blog Header
+             SECTION 1 � Premium Blog Header
         ====================================================== -->
         <section class="blog-hero-premium">
             <div class="blog-hero-pattern"></div>
@@ -170,7 +192,7 @@
         </div>
 
         <!-- ======================================================
-             SECTION 2 — Cinematic Featured Article
+             SECTION 2 � Cinematic Featured Article
         ====================================================== -->
         <section class="featured-post-premium section-padding bg-light">
             <div class="container">
@@ -183,9 +205,11 @@
                             <span class="badge-gold">Cosmetic Dentistry</span>
                             <span class="time-read"><i class="fa-regular fa-clock me-1"></i> 6 min read</span>
                         </div>
-                        <h2 class="fp-title"><a href="blog-post-veneers-en.html">Hollywood Smile: The Complete Guide to Getting
+                        <h2 class="fp-title"><a href="blog-post-veneers-en.html">Hollywood Smile: The Complete Guide to
+                                Getting
                                 a Permanent Celebrity Smile</a></h2>
-                        <p class="fp-excerpt">Everything you need to know about dental veneers, their advantages, steps, and how to choose the right
+                        <p class="fp-excerpt">Everything you need to know about dental veneers, their advantages, steps,
+                            and how to choose the right
                             doctor to achieve the result you dream of safely and comfortably.</p>
 
                         <div class="fp-footer">
@@ -205,7 +229,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 3 — Modern Blog Grid & Filters
+             SECTION 3 � Modern Blog Grid & Filters
         ====================================================== -->
         <section class="blog-grid-premium section-padding bg-light pt-0">
             <div class="container">
@@ -230,7 +254,8 @@
                             <div class="p-card-meta">
                                 <span><i class="fa-regular fa-calendar me-1"></i> January 15, 2025</span>
                             </div>
-                            <h3 class="p-card-title"><a href="blog-post-whitening-en.html">7 Golden Tips to Maintain Your Teeth
+                            <h3 class="p-card-title"><a href="blog-post-whitening-en.html">7 Golden Tips to Maintain
+                                    Your Teeth
                                     After Whitening</a></h3>
                             <div class="p-card-divider"></div>
                             <div class="p-card-bottom">
@@ -253,7 +278,8 @@
                             <div class="p-card-meta">
                                 <span><i class="fa-regular fa-calendar me-1"></i> January 10, 2025</span>
                             </div>
-                            <h3 class="p-card-title"><a href="blog-post-implants-en.html">Everything You Need to Know About
+                            <h3 class="p-card-title"><a href="blog-post-implants-en.html">Everything You Need to Know
+                                    About
                                     Immediate Dental Implants</a></h3>
                             <div class="p-card-divider"></div>
                             <div class="p-card-bottom">
@@ -275,7 +301,8 @@
                             <div class="p-card-meta">
                                 <span><i class="fa-regular fa-calendar me-1"></i> January 5, 2025</span>
                             </div>
-                            <h3 class="p-card-title"><a href="blog-post-kids-en.html">When Should You Take Your Child for Their First
+                            <h3 class="p-card-title"><a href="blog-post-kids-en.html">When Should You Take Your Child
+                                    for Their First
                                     Dental Visit?</a></h3>
                             <div class="p-card-divider"></div>
                             <div class="p-card-bottom">
@@ -320,7 +347,8 @@
                             <div class="p-card-meta">
                                 <span><i class="fa-regular fa-calendar me-1"></i> December 15, 2024</span>
                             </div>
-                            <h3 class="p-card-title"><a href="blog-post-braces-en.html">Clear vs. Traditional Braces? A Comprehensive
+                            <h3 class="p-card-title"><a href="blog-post-braces-en.html">Clear vs. Traditional Braces? A
+                                    Comprehensive
                                     Comparison</a></h3>
                             <div class="p-card-divider"></div>
                             <div class="p-card-bottom">
@@ -336,7 +364,7 @@
         </section>
 
         <!-- ======================================================
-             SECTION 4 — Elite Newsletter
+             SECTION 4 � Elite Newsletter
         ====================================================== -->
         <section class="elite-newsletter-section section-padding">
             <div class="container">
@@ -373,15 +401,17 @@
         </section>
 
         <!-- ======================================================
-             SECTION 5 — Final CTA Section
+             SECTION 5 � Final CTA Section
         ====================================================== -->
         <section class="blog-cta-premium section-padding">
             <div class="container">
                 <div class="blog-cta-card bg-white shadow-sm text-center" data-aos="fade-up">
                     <div class="cta-pulse-icon no-animation"><i class="fa-solid fa-user-doctor"></i></div>
                     <h2 class="display-5 text-navy fw-bold mb-3">Have a Medical Question?</h2>
-                    <p class="text-gray mb-4 mx-auto" style="max-width:600px; font-size:18px; text-align: center !important; margin-left: auto !important; margin-right: auto !important;">
-                        Our trained and specialized medical team is always ready to answer all your questions. Contact us and get a
+                    <p class="text-gray mb-4 mx-auto"
+                        style="max-width:600px; font-size:18px; text-align: center !important; margin-left: auto !important; margin-right: auto !important;">
+                        Our trained and specialized medical team is always ready to answer all your questions. Contact
+                        us and get a
                         free initial consultation.
                     </p>
                     <div class="d-flex justify-content-center gap-3 flex-wrap">
@@ -408,7 +438,8 @@
                     <a href="index-en.html" class="logo footer-logo">
                         <span class="logo-gold">Demo</span><span class="logo-white">Dental</span>
                     </a>
-                    <p>Demo Dental Clinic — Your premier destination for exceptional dentistry in Riyadh. We combine medical expertise Medical
+                    <p>Demo Dental Clinic � Your premier destination for exceptional dentistry in Riyadh. We combine
+                        medical expertise Medical
                         and modern technology
                         technology to give you a lasting smile.</p>
                     <div class="social-icons footer-social">
@@ -447,8 +478,8 @@
                     <h3>Contact Information</h3>
                     <ul class="contact-info-list">
                         <li><i class="fa-solid fa-phone"></i> <a href="tel:0114646334" dir="ltr">0114646334</a></li>
-                        <li><i class="fa-solid fa-envelope"></i> <a
-                                href="mailto:info@Demo Dental.sa">info@Demo Dental.sa</a></li>
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@Demo Dental.sa">info@Demo
+                                Dental.sa</a></li>
                         <li><i class="fa-solid fa-location-dot"></i> Mohammed Al-Hakim St, Sulaymaniyah, Riyadh</li>
                         <li><i class="fa-regular fa-clock"></i> Sat - Thu: 9 AM - 9 PM</li>
                     </ul>
