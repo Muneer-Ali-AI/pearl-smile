@@ -36,7 +36,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -7883,7 +7882,9 @@ html[dir="rtl"] .faq-answer-premium p {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    align-self: flex-start;
+    align-self: start;
+    position: sticky;
+    top: 100px;
 }
 
 .sidebar-widget {
