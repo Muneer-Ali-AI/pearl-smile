@@ -9149,12 +9149,15 @@ html[dir="rtl"] .faq-answer-premium p {
     }
 
     main,
-    section,
     .container,
-    .section-padding,
     footer {
         max-width: 100vw;
-        overflow-x: hidden;
+    }
+
+    section,
+    .section-padding {
+        max-width: 100vw;
+        overflow: visible;
     }
 
     .container {
