@@ -10021,6 +10021,12 @@ button[class^="fa-"], button[class*=" fa-"],
    HERO V2 + STATS V2 — RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 960px) {
+    .hero-v2 {
+        padding-top: 80px;
+        min-height: auto;
+        overflow: visible;
+    }
+
     .hero-v2-inner {
         grid-template-columns: 1fr;
         padding-top: 30px;

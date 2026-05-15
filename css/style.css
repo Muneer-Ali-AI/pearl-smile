@@ -10454,6 +10454,7 @@ button[class^="fa-"], button[class*=" fa-"],
     .hero-v2 {
         padding-top: 80px; /* Mobile: smaller header */
         min-height: auto;
+        overflow: visible;
     }
 
     .hero-v2-inner {
