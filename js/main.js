@@ -1,15 +1,21 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Demo Dental Clinic - Main JavaScript
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. AOS Initialization --- */
+    /* MOBILE FIX: Disable AOS entirely on mobile (< 768px).
+       AOS animations cause scroll traps on real mobile devices,
+       creating per-section scrollbars during first scroll. */
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
-        offset: 100
+        offset: 100,
+        disable: function() {
+            return window.innerWidth < 768;
+        }
     });
 
     /* --- 2. Header Scroll Effect --- */
