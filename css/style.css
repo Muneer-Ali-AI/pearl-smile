@@ -584,7 +584,7 @@ img {
     min-height: 600px;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow: clip;
     background: url('../img/hero_bg_1772314136524.png') center/cover no-repeat;
 }
 
@@ -1282,7 +1282,7 @@ img {
 /* --- SECTION 4.2: Patient Journey --- */
 .patient-journey {
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .journey-timeline {
@@ -1763,7 +1763,7 @@ img {
 .doctors-v3 {
     background: linear-gradient(170deg, #FAF6EF 0%, #F5F0E8 40%, #FBF8F2 100%);
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .doctors-v3::before {
@@ -3463,7 +3463,7 @@ img {
 .pre-footer-cta {
     color: var(--white);
     text-align: center;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .cta-overlay-bg {
@@ -4405,7 +4405,7 @@ img {
 .treatments-diff-premium {
     background: linear-gradient(135deg, var(--navy), var(--navy-light));
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .treatments-diff-premium::after {
@@ -4951,7 +4951,7 @@ html[dir="rtl"] .faq-answer-premium p {
 /* --- Section 2: Premium Doctors Trust Section --- */
 .doctors-trust-premium {
     background: var(--light-bg);
-    overflow: hidden;
+    overflow: clip;
     position: relative;
 }
 
@@ -5437,7 +5437,7 @@ html[dir="rtl"] .faq-answer-premium p {
 /* --- Section 4: Testimonials (Dark Swiper) --- */
 .doc-testimonials {
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .dt-decor-circle {
@@ -5577,7 +5577,7 @@ html[dir="rtl"] .faq-answer-premium p {
     position: relative;
     background: #ffffff;
     padding: 110px 0;
-    overflow: hidden;
+    overflow: clip;
 }
 
 /* --- Decorative background orbs --- */
@@ -6293,7 +6293,7 @@ html[dir="rtl"] .faq-answer-premium p {
 .docs-final-cta {
     background: linear-gradient(135deg, var(--navy) 0%, #0d1a35 100%);
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .docs-cta-bg-pattern {
@@ -6548,7 +6548,7 @@ html[dir="rtl"] .faq-answer-premium p {
     background: linear-gradient(135deg, var(--navy) 0%, #15385a 100%);
     color: #fff;
     text-align: center;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .contact-hero-overlay {
@@ -7301,7 +7301,7 @@ html[dir="rtl"] .faq-answer-premium p {
     padding-top: 150px;
     padding-bottom: 60px;
     position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
 
 .blog-hero-pattern {
@@ -9142,10 +9142,16 @@ html[dir="rtl"] .faq-answer-premium p {
 
 @media (max-width: 768px) {
 
-    /* --- A. Global Overflow Containment --- */
-    html, body {
+    /* --- A. Global Overflow + Scroll Fix --- */
+    html {
         overflow-x: hidden;
         max-width: 100vw;
+    }
+
+    body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        -webkit-overflow-scrolling: touch; /* Smooth inertial scroll on iOS */
     }
 
     main,
@@ -9154,10 +9160,36 @@ html[dir="rtl"] .faq-answer-premium p {
         max-width: 100vw;
     }
 
+    /* === CRITICAL MOBILE SCROLL FIX ===
+       Replace overflow:hidden with overflow:clip on ALL large section
+       containers. overflow:clip clips content visually (like hidden)
+       but does NOT create a scroll container, preventing "scroll traps"
+       where touch-scroll gets trapped inside a section on real phones.
+       ================================================================ */
     section,
-    .section-padding {
+    .section-padding,
+    .hero,
+    .hero-v2,
+    .patient-journey,
+    .doctors-v3,
+    .before-after,
+    .features,
+    .about-preview,
+    .testimonials,
+    .offers-section,
+    .blog-section,
+    .final-cta,
+    .pre-footer-cta,
+    .treatments-diff-premium,
+    .doctors-trust-premium,
+    .doc-testimonials,
+    .docs-final-cta,
+    .dgv2-section,
+    .contact-hero,
+    .blog-hero-premium,
+    .bp-faq {
         max-width: 100vw;
-        overflow: visible;
+        overflow: clip !important;
     }
 
     .container {
@@ -9866,7 +9898,7 @@ button[class^="fa-"], button[class*=" fa-"],
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: clip;
     /* Clear fixed header: top-bar (40px) + header (~75px) + breathing room */
     padding-top: 120px;
 }
@@ -10454,7 +10486,7 @@ button[class^="fa-"], button[class*=" fa-"],
     .hero-v2 {
         padding-top: 80px; /* Mobile: smaller header */
         min-height: auto;
-        overflow: visible;
+        overflow: clip;
     }
 
     .hero-v2-inner {
