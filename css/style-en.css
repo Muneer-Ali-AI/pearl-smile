@@ -8762,6 +8762,18 @@ html[dir="rtl"] .faq-answer-premium p {
         overflow: clip !important;
     }
 
+    /* === CRITICAL FIX #2: AOS.js SCROLL TRAP NEUTRALIZATION ===
+       Remove vertical transforms from AOS on mobile to prevent scroll traps.
+       Elements will still fade in (opacity) but without vertical movement.
+       ================================================================ */
+    [data-aos] {
+        transform: none !important;
+    }
+    
+    [data-aos].aos-animate {
+        transform: none !important;
+    }
+
     .container {
         padding: 0 15px;
     }

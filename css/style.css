@@ -9192,6 +9192,28 @@ html[dir="rtl"] .faq-answer-premium p {
         overflow: clip !important;
     }
 
+    /* === CRITICAL FIX #2: AOS.js SCROLL TRAP NEUTRALIZATION ===
+       AOS fade-up uses transform: translate3d(0, 100px, 0) which makes
+       elements start 100px BELOW their final position. When AOS triggers
+       during first scroll on real mobile devices, elements "jump" vertically,
+       causing the browser to create independent scroll containers per section.
+       
+       This is WHY:
+       - Problem appears only on FIRST scroll (AOS once:true fires once)
+       - Works perfectly after full scroll cycle (all animations done)
+       - About/FAQ work fine (they use fade-left/right = horizontal transforms)
+       
+       FIX: Remove ALL vertical transforms from AOS on mobile.
+       Elements will still fade in (opacity 0→1) but without vertical movement.
+       ================================================================ */
+    [data-aos] {
+        transform: none !important;
+    }
+    
+    [data-aos].aos-animate {
+        transform: none !important;
+    }
+
     .container {
         padding: 0 15px;
     }
