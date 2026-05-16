@@ -5,17 +5,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. AOS Initialization --- */
-    /* MOBILE ANIMATION FIX: AOS is enabled everywhere.
-       On mobile (< 768px), CSS neutralizes transforms (translateY, scale)
-       that cause scroll traps, but KEEPS opacity transitions for smooth
-       fade-in animations. This gives a professional feel without scroll issues.
-       The offset is reduced on mobile to trigger animations sooner. */
-    const isMobile = window.innerWidth < 768;
+    /* AOS runs identically on desktop and mobile.
+       The scroll trap issue was caused by overflow:hidden on sections (now
+       fixed with overflow:clip in CSS). overflow:clip does NOT create a
+       scroll container, so AOS transforms (translateY, scale, etc.) are
+       safe and won't cause per-section scroll traps on real phones. */
     AOS.init({
-        duration: isMobile ? 600 : 800,
+        duration: 800,
         easing: 'ease-in-out',
         once: true,
-        offset: isMobile ? 30 : 100,
+        offset: 100,
     });
 
     /* --- 2. Header Scroll Effect --- */

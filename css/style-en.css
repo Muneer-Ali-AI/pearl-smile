@@ -8762,27 +8762,10 @@ html[dir="rtl"] .faq-answer-premium p {
         overflow: clip !important;
     }
 
-    /* === MOBILE ANIMATION FIX: FADE-ONLY AOS ===
-       Keep smooth fade-in animations (opacity) on mobile for a professional
-       feel, but REMOVE all transforms (translateY, translateX, scale) that
-       cause scroll traps on real phones. AOS is enabled via JS on mobile,
-       so elements will fade in as you scroll — just without movement.
-       The overflow:clip fix above prevents scroll containers.
-       ================================================================ */
-
-    /* Before AOS triggers: elements start invisible (AOS default) */
-    [data-aos] {
-        transform: none !important;        /* Kill ALL transforms (translateY, scale, etc.) */
-        transition-property: opacity !important; /* Only animate opacity, nothing else */
-        transition-duration: 0.6s !important;
-        transition-timing-function: ease-out !important;
-    }
-
-    /* After AOS triggers: elements become visible with smooth fade */
-    [data-aos].aos-animate {
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    /* AOS animations run fully on mobile (same as desktop).
+       The overflow:clip fix above is the real scroll trap prevention.
+       overflow:clip does NOT create a scroll container, so AOS transforms
+       (translateY, scale, translateX) work safely without trapping scroll. */
 
     .container {
         padding: 0 15px;
